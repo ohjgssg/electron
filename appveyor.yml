@@ -216,6 +216,9 @@ for:
         MOCHA_REPORTER: mocha-multi-reporters
         ELECTRON_SKIP_NATIVE_MODULE_TESTS: true
 
+    init:
+      - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))        
+
     build_script:
       - ps: |
           node script/yarn.js install --frozen-lockfile
